@@ -11,7 +11,7 @@ public class IndexPageController {
 	private Object indexPage() {
 		System.out.println("2132");
 		ModelAndView modelAndView = new ModelAndView("/index.ftl");
-		modelAndView.addObject("hellow", "helloWord你妹");
+		modelAndView.addObject("hellow", "我的第一个springMVC项目");
 		return modelAndView;
 	}
 }
