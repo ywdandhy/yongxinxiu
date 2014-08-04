@@ -18,7 +18,6 @@ public class IndexPageController {
 		System.out.println("2132");
 		ModelAndView modelAndView = new ModelAndView("/index.ftl");
 		User user = iUserService.queryById("12");
-		modelAndView.addObject("hellow", user.getName());
-		return modelAndView;
+		return modelAndView.addObject("hellow",user.getName());
 	}
 }
