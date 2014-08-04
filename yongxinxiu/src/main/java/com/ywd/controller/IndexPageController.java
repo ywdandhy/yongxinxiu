@@ -15,7 +15,6 @@ public class IndexPageController {
 	IUserService iUserService;
 	@RequestMapping("/index")
 	private Object indexPage() {
-		System.out.println("2132");
 		ModelAndView modelAndView = new ModelAndView("/index.ftl");
 		User user = iUserService.queryById("12");
 		return modelAndView.addObject("hellow",user.getName());
