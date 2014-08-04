@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bba0dc15-da2a-4a36-b0ea-ad4001c109c0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yongxinxiu/src/main/webapp/WEB-INF/staticPage/index.html" afterPath="$PROJECT_DIR$/yongxinxiu/src/main/webapp/WEB-INF/staticPage/index.html" />
+    <list default="true" id="bba0dc15-da2a-4a36-b0ea-ad4001c109c0" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;yongxinxiu/src/main/webapp/WEB-INF/staticPage/index.html&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="yongxinxiu.iws" />
@@ -44,6 +43,11 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Bubble" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -301,7 +305,6 @@
             <option name="mySupportsDeletion" value="false" />
             <option name="myCanBeAbsent" value="false" />
             <option name="myId" value="UPDATED" />
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/yongxinxiu/src/main/webapp/WEB-INF/staticPage/index.html</PATH>
           </FILE-GROUP>
           <FILE-GROUP>
             <option name="myUpdateName" value="Created" />
@@ -345,6 +348,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="MERGED_WITH_CONFLICTS" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/yongxinxiu/src/main/webapp/WEB-INF/staticPage/index.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Merged with tree conflicts" />
@@ -452,6 +456,11 @@
       <created>1406604180455</created>
       <updated>1406604180455</updated>
     </task>
+    <task id="LOCAL-00001" summary="新增测试能否合并">
+      <created>1407141177635</created>
+      <updated>1407141177635</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -493,6 +502,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="新增测试能否合并" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增测试能否合并" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
