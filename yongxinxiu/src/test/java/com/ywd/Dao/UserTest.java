@@ -10,17 +10,29 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ywd.model.User;
 import com.ywd.service.IUserService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(locations = {"classpath:applicationContext.xml","classpath:spring-servlet.xml"})
-@Transactional
+//@Transactional
 public class UserTest {
 	@Autowired  
     private IUserService iUserService;
     
-    @Test
-    public void serverTest() throws Exception {
-    	Assert.assertEquals("21", iUserService.queryById("12").getName());
+//    @Test
+    public void queryTest() throws Exception {
+    	Assert.assertEquals("yangweida", iUserService.queryById("123").getUsername());
     }
+    
+    @Test
+    public void saveTest() {
+    	User user = new User();
+    	user.setId("12323");
+    	user.setName("杨维达");
+    	user.setPassword("yangweida");
+    	user.setUsername("yangweida");
+    	iUserService.save(user);
+	}
+    
 }

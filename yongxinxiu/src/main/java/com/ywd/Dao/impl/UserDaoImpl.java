@@ -13,8 +13,7 @@ import com.ywd.model.User;
 @Repository
 public class UserDaoImpl extends HibernateDaoSupport implements IUserDao {
 
-	@Autowired  
-    @Qualifier("sessionFactory")  
+	@Autowired
     private SessionFactory sessionFactory;  
    
     public Session getSession() {

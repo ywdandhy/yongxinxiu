@@ -8,13 +8,22 @@
     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
     http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
-
+	
+	<bean id="propertyConfigurer"  
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+        <property name="locations">  
+            <list>  
+                <value>classpath:jdbc.properties</value>  
+            </list>  
+        </property>  
+    </bean>
+    
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/jiehunba" />
-		<property name="username" value="root" />
-		<property name="password" value="" />
+		<property name="url" value="${jdbcUrl}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
 	</bean>
 
 	<!-- 配置hibernate SessionFactory -->
@@ -31,6 +40,7 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.connection.autocommit">false</prop>
 				<prop key="hiberante.format_sql">true</prop>
 			</props>
 		</property>
@@ -42,12 +52,17 @@
 		</property>
 	</bean>
 
+
+	<!-- 开启AOP监听 只对当前配置文件有效 -->
+	<aop:aspectj-autoproxy expose-proxy="true"/>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 	<!-- 事务管理器 -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
+	
+	
 	<!-- 事务代理类 -->
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
@@ -66,6 +81,7 @@
 			<tx:method name="count*" propagation="REQUIRED" read-only="true" />
 			<tx:method name="find*" propagation="REQUIRED" read-only="true" /> 
 			<tx:method name="list*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="send*" propagation="REQUIRED"/>
 			<tx:method name="*" read-only="true" />
 		</tx:attributes>
 	</tx:advice>

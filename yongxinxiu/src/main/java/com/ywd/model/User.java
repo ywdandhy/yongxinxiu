@@ -27,7 +27,6 @@ public class User {
 
 	/** 主键 */
 	@Id
-	@Column(name = "id")
 	String id;
 
 	/** 用户名 */
