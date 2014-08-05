@@ -28,7 +28,7 @@ public class UserTest {
     @Test
     public void saveTest() {
     	User user = new User();
-    	user.setId("12323");
+//    	user.setId("12323");
     	user.setName("杨维达");
     	user.setPassword("yangweida");
     	user.setUsername("yangweida");
