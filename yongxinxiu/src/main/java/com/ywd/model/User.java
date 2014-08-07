@@ -11,15 +11,18 @@ import org.hibernate.annotations.GenericGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ywd.Dao.intf.IUserDao;
+import com.ywd.base.intf.IModelBase;
+import com.ywd.util.springFactory.SpringFactory;
 
 @Entity
 @Table(name = "t_user")
-public class User {
+public class User implements IModelBase {
 	
 	@Transient
 	@Autowired
 	IUserDao iUserDao;
-
+	
+	
 	/** 主键 */
 	
 	@Id
@@ -91,6 +94,35 @@ public class User {
 	public void save() {
 		iUserDao.save(this);
 	}
+	
+	private static IUserDao repo() {
+		return SpringFactory.getBean(IUserDao.class);
+	}
+
+	/**
+	 * 保存或者更新，如果有主键那就更新，没有就插入
+	 */
+	public void saveOrUpdate() {
+		iUserDao.saveOrUpdate(this);
+		
+	}
+
+	/**
+	 * 根据id查询一个实例
+	 * @param id
+	 * @return
+	 */
+	public static User findInstance(String id) {
+		return repo().queryById(id);
+	}
+
+	/**
+	 * 删除记录
+	 */
+	public void delete() {
+		repo().delete(this);
+	}
+	
 
 
 }

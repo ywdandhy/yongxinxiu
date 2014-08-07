@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ywd.Dao.intf.IUserDao;
 import com.ywd.model.User;
-import com.ywd.service.IUserService;
+import com.ywd.service.User.IUserService;
 
 @Controller
 public class IndexPageController {

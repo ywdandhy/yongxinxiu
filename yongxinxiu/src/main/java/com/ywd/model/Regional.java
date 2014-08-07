@@ -11,12 +11,12 @@ public class Regional {
 	
 	@Id
 	int id;
-	@Column
+	@Column(name = "name")
 	String name;
-	@Column
-	String level;
-	@Column
-	int father;
+	@Column(name = "level")
+	int level;
+	@Column(name = "fatherId")
+	int fatherId;
 	/** 区域编码*/
 	public int getId() {
 		return id;
@@ -34,21 +34,22 @@ public class Regional {
 		this.name = name;
 	}
 	/** 等级*/
-	public String getLevel() {
+	public int getLevel() {
 		return level;
 	}
 	/** 等级*/
-	public void setLevel(String lever) {
+	public void setLevel(int lever) {
 		this.level = lever;
 	}
 	/** 上级区域编码*/
-	public int getFather() {
-		return father;
+	public int getFatherId() {
+		return fatherId;
 	}
 	/** 上级区域编码*/
-	public void setFather(int father) {
-		this.father = father;
+	public void setFatherId(int fatherId) {
+		this.fatherId = fatherId;
 	}
+	
 	
 	
 	

@@ -1,5 +1,7 @@
 package com.ywd.Dao;
 
+import java.util.List;
+
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -10,29 +12,30 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ywd.model.User;
-import com.ywd.service.IUserService;
+import com.ywd.model.Regional;
+import com.ywd.service.Regional.IRegionalService;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(locations = {"classpath:applicationContext.xml","classpath:spring-servlet.xml"})
-//@Transactional
-public class UserTest {
-	@Autowired  
-    private IUserService iUserService;
-    
-//    @Test
-    public void queryTest() throws Exception {
-    	Assert.assertEquals("yangweida", iUserService.queryById("123").getUsername());
-    }
-    
-    @Test
-    public void saveTest() {
-    	User user = new User();
-//    	user.setId("12323");
-    	user.setName("杨维达");
-    	user.setPassword("yangweida");
-    	user.setUsername("yangweida");
-    	iUserService.save(user);
+@Transactional
+public class TestRegional {
+	
+	@Autowired
+	IRegionalService regionalService;
+	
+	@Test
+	public void findById() {
+		Regional regional = regionalService.findById(320000);
+		Assert.assertEquals("江苏省", regional.getName());
 	}
-    
+	
+	@Test
+	public void findByFatherId(){
+		List<Regional> lsRegionals = regionalService.findByFatherId("320000");
+		for (Regional regional : lsRegionals) {
+			System.out.println(regional.getName());
+		}
+	}
+	
 }

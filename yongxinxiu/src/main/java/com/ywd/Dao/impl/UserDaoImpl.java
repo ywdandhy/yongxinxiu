@@ -3,7 +3,6 @@ package com.ywd.Dao.impl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
@@ -24,7 +23,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements IUserDao {
     @Autowired  
     public void setSessionFactoryOverride(SessionFactory sessionFactory)   
     {   
-        super.setSessionFactory(sessionFactory);   
+        super.setSessionFactory(sessionFactory); 
     } 
 	
 	public void save(User user) {
@@ -33,6 +32,15 @@ public class UserDaoImpl extends HibernateDaoSupport implements IUserDao {
 
 	public User queryById(String id) {
 		return (User) getSession().get(User.class, id);
+	}
+
+	public void saveOrUpdate(User user) {
+		getSession().saveOrUpdate(user);
+	}
+
+	public void delete(User user) {
+		getSession().delete(user);
+		
 	}
 
 }

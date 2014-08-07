@@ -1,4 +1,4 @@
-package com.ywd.service;
+package com.ywd.service.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

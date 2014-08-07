@@ -1,4 +1,4 @@
-package com.ywd.service;
+package com.ywd.service.User;
 
 import com.ywd.model.User;
 
