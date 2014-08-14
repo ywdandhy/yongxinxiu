@@ -35,13 +35,6 @@
 		<version>2.3.19</version>
 	</dependency>
 	<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<version>3.2.2.RELEASE</version>
-			<type>jar</type>
-			<scope>compile</scope>
-	</dependency>
-	<dependency>
 		<groupId>commons-collections</groupId>
 		<artifactId>commons-collections</artifactId>
 		<version>20040616</version>
@@ -116,6 +109,21 @@
 		<groupId>javax.servlet</groupId>
 		<artifactId>javax.servlet-api</artifactId>
 		<version>3.1.0</version>
+	</dependency>
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-xc</artifactId>
+		<version>1.9.13</version>
+	</dependency>
+	<dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>fastjson</artifactId>
+		<version>1.1.41</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId>
+		<version>4.0.6.RELEASE</version>
 	</dependency>
   </dependencies>
   <build>
