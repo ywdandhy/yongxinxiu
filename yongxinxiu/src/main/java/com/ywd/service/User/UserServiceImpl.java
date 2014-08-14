@@ -17,5 +17,10 @@ public class UserServiceImpl implements IUserService{
 	public User queryById(String id) {
 		return iUserDao.queryById(id);
 	}
+	public User queryByMobile(String mobile) {
+		return iUserDao.queryByMobile(mobile);
+	}
+	
+	
 
 }

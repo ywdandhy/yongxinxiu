@@ -7,7 +7,7 @@ $(document).ready(function() {
 		if(!loginDia.data("kendoWindow")){
 			loginDia.kendoWindow({
 				width : "650px",
-				height : "620px",
+				height: "400px",
 				title : "登陆和注册",
 				actions : [ "Close" ],
 				content : "/loginOrRegist.do"

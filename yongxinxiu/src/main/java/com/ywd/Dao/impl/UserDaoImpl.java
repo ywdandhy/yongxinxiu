@@ -1,7 +1,10 @@
 package com.ywd.Dao.impl;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -41,6 +44,16 @@ public class UserDaoImpl extends HibernateDaoSupport implements IUserDao {
 	public void delete(User user) {
 		getSession().delete(user);
 		
+	}
+
+	public User queryByMobile(String mobile) {
+		@SuppressWarnings("unchecked")
+		List<User> users =  (List<User>) getSession().createCriteria(User.class)
+		.add(Restrictions.eq("mobile", mobile)).list();
+		if (null == users||users.size() == 0) {
+			return null;
+		}
+		return users.get(0);
 	}
 
 }
