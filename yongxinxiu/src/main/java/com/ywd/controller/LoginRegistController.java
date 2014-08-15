@@ -1,5 +1,8 @@
 package com.ywd.controller;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,5 +40,17 @@ public class LoginRegistController {
 	private Object head() {
 		ModelAndView modelAndView = new ModelAndView("/resource/head.ftl");
 		return modelAndView;
+	}
+	
+	@RequestMapping(value ="/login",method = RequestMethod.POST)
+	private void login(String mobile,String password,HttpSession session) {
+		 
+
+	}
+	
+	@RequestMapping(value ="/regist",method = RequestMethod.POST)
+	private void regist(User user,HttpSession session) {
+		 
+
 	}
 }

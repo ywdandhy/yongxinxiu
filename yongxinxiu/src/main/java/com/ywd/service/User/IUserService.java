@@ -1,6 +1,7 @@
 package com.ywd.service.User;
 
 import com.ywd.model.User;
+import com.ywd.util.other.ReturnObj;
 
 
 public interface IUserService  {
@@ -12,4 +13,6 @@ public interface IUserService  {
 	
 	/**根据手机查询*/
 	public User queryByMobile(String mobile);
+	
+	public ReturnObj registUser(User user);
 }

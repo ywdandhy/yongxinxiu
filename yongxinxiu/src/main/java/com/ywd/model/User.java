@@ -49,6 +49,8 @@ public class User implements IModelBase {
 	String sex;
 	
 	
+	
+
 	/** 主键 */
 	public String getId() {
 		return id;
@@ -89,6 +91,38 @@ public class User implements IModelBase {
 	/** 姓名 */
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+
+	/**
+	 *    手机
+	 * @return
+	 */
+	public String getMobile() {
+		return mobile;
+	}
+
+	/**
+	 *    手机
+	 */
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	/**
+	 * 性别
+	 * @return
+	 */
+	public String getSex() {
+		return sex;
+	}
+
+	/**
+	 * 性别
+	 * @return
+	 */
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 	public void save() {
