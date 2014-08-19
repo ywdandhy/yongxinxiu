@@ -24,17 +24,18 @@ public class TestUser {
     	Assert.assertEquals("yangweida", iUserService.queryById("123").getUsername());
     }
     
-//    @Test
-    public void saveTest() {
+    @Test
+    public void registTest() {
     	User user = new User();
 //    	user.setId("12323");
-    	user.setName("杨维达");
-    	user.setPassword("yangweida");
-    	user.setUsername("yangweida");
-    	iUserService.save(user);
+    	user.setMobile("13916348231");
+    	user.setName("miemie");
+    	user.setPassword("123456");
+    	user.setUsername(user.getMobile());
+    	iUserService.registUser(user);
 	}
     
-    @Test
+//    @Test
     public void findInstance() {
 		User user =  User.findInstance("402897b447a07ecc0147a07ed9950000");
 		Assert.assertEquals("杨维达", user.getName());

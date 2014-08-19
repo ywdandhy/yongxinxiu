@@ -24,20 +24,11 @@
 		*=*/* </value> </property> </bean> -->
 
 	<!-- 对包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 需要更改 -->
-	<context:component-scan base-package="com.ywd" />
-
+	<context:component-scan base-package="com.ywd.controller">
+		 <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-		<!-- <property name="messageConverters">
-			<bean
-				class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
-				<property name="supportedMediaTypes">
-					<list>
-						<ref/>
-					</list>
-				</property>
-			</bean>
-		</property> -->
 	</bean>
 
 	<!-- <bean id="freemarkerConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean"> 

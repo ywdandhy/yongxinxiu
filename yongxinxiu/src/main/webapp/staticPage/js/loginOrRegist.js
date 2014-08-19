@@ -1,5 +1,5 @@
 $(function() {
-
+	console.info(12);
 	$("#loginButton").kendoButton();
 	$("#registButton").kendoButton();
 	$("#phone_number").keyup(function() {
@@ -76,8 +76,6 @@ $(function() {
 	var validateRegistPassword2 = function() {
 		var password = $("#password").val();
 		var password2 = $("#password2").val();
-		console.info(password);
-		console.info(password2);
 		if (password != password2) {
 			$("#password2_right").hide();
 			$(".password2_message_error_span").show();
@@ -125,20 +123,49 @@ $(function() {
 
 	// 登陆
 	$("#loginButton").click(function() {
+		
+		});
+	
+	// 注册
+	$("#registButton").click(function() {
 		var isMobileRigth = validateMobile();
-		var isRegistRight = validateRegistPassword();
-		if (isMobileRigth && isRegistRight) {
+		var isPasswordRight = validateRegistPassword();
+		var isPasswordRight2 = validateRegistPassword2();
 
+		if (isMobileRigth && isPasswordRight&&isPasswordRight2) {
+			registStart();
+		}else{
+			return;
 		}
 	});
+	
 
 	//登陆开始
-	var loginStart = function() {
-		
-	};
+	var loginStart = function() {};
 	//注册开始
 	var registStart = function() {
-		
+		var phoneNumber = $("#phone_number").val();
+		var password = $("#password").val();
+		var name = $("#nickName").val();
+		$.ajax({
+			url : 'regist.do',
+			dataType : 'json',
+			type : 'post',
+			data : {
+				mobile : phoneNumber,
+				password : password,
+				name : name
+			},
+			success : function(date) {
+				if(date.isSuccess){
+					alert("注册成功");
+				}
+			},
+			error : function(){
+				}
+			})
+			
+	
 	};
 
 	// 注册

@@ -17,7 +17,7 @@
 			</tr>
 			<tr height="60px">
 				<td><label for="phone_number">手机号:</label></td>
-                <td><input id="phone_number" class="k-textbox" type="text" value="" /></td>
+                <td><input id="phone_number" name="mobile" class="k-textbox" type="text" value="" /></td>
                 <td><span style="display:none" class="login_message_error phone_number_error_span" >
 	                	<div></div>
 	                	<span class="phone_number_error"></span>
@@ -28,7 +28,7 @@
 			</tr>
 			<tr height="60px">
 				<td><label for="password">输入密码:</label></td>
-                <td><input id="password" class="k-textbox" type="password" value="" /></td>
+                <td><input id="password" class="k-textbox" name="password" type="password" value="" /></td>
                 <td><span style="display:none" class="login_message_error password_message_error_span">
 	                	<div></div>
 	                	<span class="password_message_error"></span>
@@ -49,7 +49,7 @@
 			</tr>
 			<tr height="60px" id='nickNameTr' style="display:none">
 				<td><label for="nickName">昵称:</label></td>
-                <td><input class="k-textbox" id="nickName" type="text" value="" /></td>
+                <td><input class="k-textbox" id="nickName" name="name" type="text" value="" /></td>
                 <td><span style="display:none" class="login_message_error"></span></td>
                 <td><span style="display:none" class="login_message_right" ></span></td>
 			</tr>

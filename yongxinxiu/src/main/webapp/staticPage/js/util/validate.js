@@ -197,7 +197,7 @@ password : {// 验证整数或小数
     	}
         return /^\s*[.A-Za-z0-9_-]{6,20}\s*$/.test(value); 
     }, 
-    message : '请输入6-20位的数字或字母' 
+    message : '输入6-20位的数字或字母' 
 }
 
 

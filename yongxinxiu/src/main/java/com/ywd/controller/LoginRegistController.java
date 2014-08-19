@@ -1,6 +1,5 @@
 package com.ywd.controller;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ywd.model.User;
 import com.ywd.service.User.IUserService;
+import com.ywd.util.other.ReturnObj;
 
 @Controller
 public class LoginRegistController {
@@ -49,8 +49,10 @@ public class LoginRegistController {
 	}
 	
 	@RequestMapping(value ="/regist",method = RequestMethod.POST)
-	private void regist(User user,HttpSession session) {
-		 
-
+	@ResponseBody
+	private Object regist(User user,HttpSession session) {
+		 user.setUsername(user.getMobile());
+		 ReturnObj returnObj =  iUserService.registUser(user);
+		 return returnObj;
 	}
 }
