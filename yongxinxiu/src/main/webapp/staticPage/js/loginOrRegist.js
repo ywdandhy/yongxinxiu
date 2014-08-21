@@ -1,7 +1,4 @@
 $(function() {
-	console.info(12);
-	$("#loginButton").kendoButton();
-	$("#registButton").kendoButton();
 	$("#phone_number").keyup(function() {
 		validateMobile();
 	});
@@ -123,7 +120,7 @@ $(function() {
 
 	// 登陆
 	$("#loginButton").click(function() {
-		
+		loginStart();
 		});
 	
 	// 注册
@@ -141,7 +138,33 @@ $(function() {
 	
 
 	//登陆开始
-	var loginStart = function() {};
+	var loginStart = function() {
+		var phoneNumber = $("#phone_number").val();
+		var password = $("#password").val();
+		$.ajax({
+			url : 'login.do',
+			dataType : 'json',
+			type : 'post',
+			data : {
+				username : phoneNumber,
+				password : password
+			},
+			success : function(date) {
+				console.info(date);
+				if(date.success){
+					$("#loginDia").modal('hide')
+					loadHead();
+				}else{
+					$("#login_right").hide();
+					$(".phone_number_error_span").show();
+					$(".phone_number_error").text(date.message);
+				}
+			}
+			});
+	};
+	
+	
+	
 	//注册开始
 	var registStart = function() {
 		var phoneNumber = $("#phone_number").val();
@@ -157,13 +180,18 @@ $(function() {
 				name : name
 			},
 			success : function(date) {
-				if(date.isSuccess){
-					alert("注册成功");
+				console.info(date);
+				if(date.success){
+					$("#loginDia").modal('hide');
+					loadHead();
+				}else{
+					$(".phone_number_error_span").show();
+					$(".phone_number_error").text(date.message);
 				}
 			},
 			error : function(){
 				}
-			})
+			});
 			
 	
 	};

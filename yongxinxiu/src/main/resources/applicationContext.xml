@@ -57,10 +57,6 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>    
     </context:component-scan> 
     
-	<!-- <context:component-scan base-package="com.ywd.service.*">
-		<context:include-filter type="annotation"
-			expression="org.springframework.stereotype.Service" />
-	</context:component-scan> -->
 	<!-- 事务管理器 -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
@@ -97,6 +93,5 @@
 			id="bussinessService" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="bussinessService" />
 	</aop:config>
-	<!-- <aop:config proxy-target-class="true"> <aop:advisor advice-ref="txAdvice" 
-		pointcut="execution(* com.ywd.service..*.*(..))" /> </aop:config> -->
+
 </beans>

@@ -8,6 +8,13 @@ public interface IUserDao {
 	/**根据Id查找*/
 	public User queryById(String id);
 	
+	/**
+	 * 根据用户名查找
+	 * @param username
+	 * @return
+	 */
+	public User queryByUserName(String username);
+	
 	/**根据手机查询*/
 	public User queryByMobile(String mobile);
 	

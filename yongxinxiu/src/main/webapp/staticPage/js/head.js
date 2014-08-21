@@ -1,25 +1,32 @@
-$(document).ready(function() {
-	
-	
-	var loginDia = $("#loginDia");
+var loadHead = function() {
+	$("#indexHeader").load("head.do", function() {
+//		var loginDia = $("#loginDia");
+		$(".login").click(function() {
+			console.info(23);
+			$("#loginDia").modal({
+				keyboard: false,
+				remote : "/loginOrRegist.do"
+			}).modal('show');
+		});
+		// 登出
+		$("#loginOut").click(function() {
+			loginOutStart();
+		});
 
-	$("#login").click(function() {
-		if(!loginDia.data("kendoWindow")){
-			loginDia.kendoWindow({
-				width : "650px",
-				height: "400px",
-				title : "登陆和注册",
-				actions : [ "Close" ],
-				content : "/loginOrRegist.do"
-			});
-			loginDia.data("kendoWindow").center();
-		}else{
-			loginDia.data("kendoWindow").open();
-			loginDia.data("kendoWindow").center();
-		}
-		
 	});
+};
 
-	
-
+// 登出开始
+var loginOutStart = function() {
+	$.ajax({
+		url : 'loginOut.do',
+		type : 'post',
+		success : function() {
+			console.info(23344);
+			loadHead();
+		}
+	});
+};
+$(document).ready(function() {
+	loadHead();
 });

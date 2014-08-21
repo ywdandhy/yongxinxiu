@@ -50,4 +50,15 @@ public class UserDaoImpl  implements IUserDao {
 		return users.get(0);
 	}
 
+
+	public User queryByUserName(String username) {
+		@SuppressWarnings("unchecked")
+		List<User> users = (List<User>) getSession().createCriteria(User.class)
+				.add(Restrictions.eq("username", username)).list();
+		if (null == users || users.size() == 0) {
+			return null;
+		}
+		return users.get(0);
+	}
+
 }
