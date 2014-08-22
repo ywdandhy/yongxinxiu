@@ -76,7 +76,7 @@ $(function() {
 		if (password != password2) {
 			$("#password2_right").hide();
 			$(".password2_message_error_span").show();
-			$(".password2_message_error").text("两次输入的密码不一致");
+			$(".password2_message_error").text("两次输入不一致");
 			return false;
 		} else {
 			$(".password2_message_error_span").hide();
@@ -152,7 +152,7 @@ $(function() {
 			success : function(date) {
 				console.info(date);
 				if(date.success){
-					$("#loginDia").modal('hide')
+					$("#loginDia").modal('hide');
 					loadHead();
 				}else{
 					$("#login_right").hide();

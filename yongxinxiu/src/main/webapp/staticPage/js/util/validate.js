@@ -187,7 +187,7 @@ intOrFloat : {// 验证整数或小数
     validator : function(value) { 
         return /^\d+(\.\d+)?$/i.test(value); 
     }, 
-    message : '请输入数字，并确保格式正确' 
+    message : '请输入数字' 
 },
 
 password : {// 验证整数或小数 
@@ -197,7 +197,7 @@ password : {// 验证整数或小数
     	}
         return /^\s*[.A-Za-z0-9_-]{6,20}\s*$/.test(value); 
     }, 
-    message : '输入6-20位的数字或字母' 
+    message : '6-20位的数字或字母' 
 }
 
 

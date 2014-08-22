@@ -1,8 +1,8 @@
 <link href="/staticPage/css/base.css" rel="stylesheet">
 
 
-<link href="/staticPage/bootstrap/css/bootstrap_bc.css" rel="stylesheet">
-
+<link href="/staticPage/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="/staticPage/bootstrap/css/carousel.css" rel="stylesheet">
 
 
 <script src="/staticPage/js/util/jquery.min.js"></script>
