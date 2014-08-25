@@ -1,0 +1,44 @@
+.loginContent {
+	width: 580px;
+	height: 370px; border : 3px solid #f8f8f8;
+	background: #fdfdfd;
+	padding: 0 55px;
+	border: 3px solid #f8f8f8;
+}
+
+.registContent {
+	overflow: hidden;
+	margin-top: 38px;
+}
+
+.login_message_error {
+	border-style: solid;
+	border-color: rgb(241, 112, 127);
+	margin-left: 20px;
+	height: 30px;
+	line-height: 25px;
+	display: inline-flex;
+	margin-bottom: 10px;
+}
+
+.login_message_error div {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: url(/staticPage/images/icons_login_small.png) no-repeat -64 0;
+}
+
+.login_message_right {
+	background: url(/staticPage/images/icons_login_small.png);
+	height: 30px;
+	width: 30px;
+	display: block;
+	margin-top: -13px;
+	margin-left: 20px;
+}
+
+.col-lg-4 > P{
+	font-size: 15px;
+	line-height: 1.75;
+}
+
