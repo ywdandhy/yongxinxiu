@@ -36,3 +36,9 @@
 	margin-top: -13px;
 	margin-left: 20px;
 }
+
+.col-lg-4 > P{
+	font-size: 15px;
+	line-height: 1.75;
+}
+
