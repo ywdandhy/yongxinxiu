@@ -1,10 +1,14 @@
 package com.ywd.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -48,9 +52,23 @@ public class User implements IModelBase {
 	@Column(name = "sex")
 	String sex;
 	
+	/**是否是经销商*/
+	@Column(name = "isDealer")
+	boolean isDealer;
 	
+	/**当前用户是否有效*/
+	@Column(name = "isEnable")
+	boolean isEnable;
 	
-
+	/**创建时间*/
+	@Temporal(TemporalType.TIMESTAMP)//不用set,hibernate会自动把当前时间写入  
+    @Column(updatable = false, length = 20)  
+    private Date createTime;
+	
+	/**更新时间*/
+	@Temporal(TemporalType.TIMESTAMP)  
+    private Date updateTime;
+	
 	/** 主键 */
 	public String getId() {
 		return id;
@@ -123,6 +141,36 @@ public class User implements IModelBase {
 	 */
 	public void setSex(String sex) {
 		this.sex = sex;
+	}
+
+	
+	/**
+	 * 是否是经销商
+	 * @return
+	 */
+	public boolean isDealer() {
+		return isDealer;
+	}
+
+	/**
+	 * 是否是经销商
+	 */
+	public void setDealer(boolean isDealer) {
+		this.isDealer = isDealer;
+	}
+
+	/**
+	 * 是否有效
+	 */
+	public boolean isEnable() {
+		return isEnable;
+	}
+
+	/**
+	 * 是否有效
+	 */
+	public void setEnable(boolean isEnable) {
+		this.isEnable = isEnable;
 	}
 
 	public void save() {
