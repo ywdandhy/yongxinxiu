@@ -9,7 +9,6 @@ import com.ywd.util.other.MD5Util;
 import com.ywd.util.other.ReturnObj;
 import com.ywd.util.validate.Validate;
 
-//@Transactional
 @Service
 public class UserServiceImpl implements IUserService {
 	@Autowired

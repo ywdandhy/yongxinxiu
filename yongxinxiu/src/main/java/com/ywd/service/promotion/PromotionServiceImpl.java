@@ -14,12 +14,17 @@ public class PromotionServiceImpl implements IPromotionService{
 	@Autowired
 	IPromotionDao iPromotionDao;
 	
-	public Promotion findById(int id) {
+	public Promotion findById(String id) {
 		return iPromotionDao.findById(id);
 	}
 
 	public List<Promotion> findByDealerId(String dealerId) {
 		return iPromotionDao.findByDealerId(dealerId);
+	}
+
+	public boolean save(Promotion promotion) {
+		boolean isSuccess = iPromotionDao.save(promotion);
+		return isSuccess;
 	}
 	
 }

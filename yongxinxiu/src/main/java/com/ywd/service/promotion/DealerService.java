@@ -10,12 +10,18 @@ import com.ywd.model.Dealer;
 public class DealerService implements IdealerService{
 	@Autowired
 	IDealerDao dealerDao;
-	public Dealer findById(int id) {
+	public Dealer findById(String id) {
 		return dealerDao.findById(id);
 	}
 
 	public Dealer findByName(String name) {
 		return dealerDao.findByName(name);
+	}
+
+
+	public boolean save(Dealer dealer) {
+		boolean isSuccess = dealerDao.saveOrUpdate(dealer);
+		return isSuccess;
 	}
 	
 }

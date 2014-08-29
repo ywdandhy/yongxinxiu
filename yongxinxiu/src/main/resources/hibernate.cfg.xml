@@ -11,7 +11,7 @@
         <property name="connection.pool_size">1</property><!---->
 
         <!-- Enable Hibernate's automatic session context management -->
-        <property name="current_session_context_class">thread</property>
+        <!-- <property name="current_session_context_class">thread</property> -->
 		
 		<!-- <mapping class="com.ywd.model.User" /> -->
     </session-factory>

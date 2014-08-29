@@ -8,6 +8,8 @@
 <meta name="author" content="">
 <#include "/view/resource/resource.ftl" />
 <script src="/staticPage/js/index/index.js"></script>
+<link href="/staticPage/css/promotion.css" rel="stylesheet">
+
 </head>
 <body>
 <div id="indexHeader"></div>

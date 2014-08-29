@@ -9,8 +9,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ywd.Dao.intf.IDealerDao;
+import com.ywd.service.promotion.IdealerService;
+import com.ywd.util.springFactory.SpringFactory;
 
 /**
  * 经销商
@@ -20,6 +26,11 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name = "t_Dealer")
 public class Dealer {
+	
+	@Transient
+	@Autowired
+	IDealerDao iDealerDao;
+	
 	/** 主键 */
 	@Id
 	@GenericGenerator(name="systemUUID",strategy="uuid")
@@ -115,6 +126,37 @@ public class Dealer {
 		this.updateTime = updateTime;
 	}
 	
+	private static IdealerService repo() {
+		return SpringFactory.getBean(IdealerService.class);
+	}
 	
+	@Override
+	public int hashCode() {
+		
+		return id.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Dealer dealer = null;
+		try {
+			dealer = (Dealer)obj;
+		} catch (Exception e) {
+			return false;
+		}
+		return  this.id.equals(dealer.getId());
+	}
+	
+	/**
+	 * 保存自己
+	 * @return
+	 */
+	public boolean save() {
+		return repo().save(this);
+	}
+	
+	public static Dealer findInstance(String id) {
+		return repo().findById(id);
+	}
 	
 }

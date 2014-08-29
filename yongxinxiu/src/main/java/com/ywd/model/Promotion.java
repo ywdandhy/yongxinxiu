@@ -1,21 +1,35 @@
 package com.ywd.model;
 
 import java.util.Date;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ywd.Dao.intf.IPromotionDao;
+import com.ywd.service.promotion.IPromotionService;
+import com.ywd.util.springFactory.SpringFactory;
 
 @Entity
 @Table(name = "t_promotion")
 public class Promotion {
+	
+	@Transient
+	@Autowired
+	IPromotionDao iPromotionDao;
+	
 	@Id
 	@GenericGenerator(name="systemUUID",strategy="uuid")
 	@GeneratedValue(generator="systemUUID")
@@ -47,7 +61,8 @@ public class Promotion {
 	
 	
 	/**经销商*/
-	List<String> lsDealerIds;
+	@ManyToMany(targetEntity = Dealer.class,fetch = FetchType.EAGER)
+	Set<Dealer> lsDealers;
 	
 	/**创建时间*/
 	@Temporal(TemporalType.TIMESTAMP)//不用set,hibernate会自动把当前时间写入  
@@ -57,6 +72,11 @@ public class Promotion {
 	/**更新时间*/
 	@Temporal(TemporalType.TIMESTAMP)  
     private Date updateTime;
+	
+	private static IPromotionService repo() {
+		return SpringFactory.getBean(IPromotionService.class);
+	}
+	
 	/**主键*/
 	public String getId() {
 		return id;
@@ -129,31 +149,61 @@ public class Promotion {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
+	 
+	
+	
 	/**经销商*/
-	public List<String> getLsDealerIds() {
-		return lsDealerIds;
+	public Set<Dealer> getLsDealers() {
+		return lsDealers;
 	}
+	
 	/**经销商*/
-	public void setLsDealerIds(List<String> lsDealerIds) {
-		this.lsDealerIds = lsDealerIds;
+	public void setLsDealers(Set<Dealer> lsDealers) {
+		this.lsDealers = lsDealers;
+	}
+	
+	 /**
+	  * 添加经销商
+	  * @param dealer
+	  */
+	public void addDealers(Dealer dealer) {
+		if (lsDealers == null) {
+			lsDealers = new LinkedHashSet<>();
+		}
+		lsDealers.add(dealer);
 	}
 	/**创建时间*/
 	public Date getCreateTime() {
 		return createTime;
 	}
-	/**创建时间*/
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+	
 	/**更新时间*/
 	public Date getUpdateTime() {
 		return updateTime;
 	}
-	/**更新时间*/
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
+	
+	public boolean save() {
+		return repo().save(this);
 	}
 	
+	public static Promotion findInstance(String id) {
+		return repo().findById(id);
+	}
 	
+	@Override
+	public int hashCode() {
+		
+		return id.hashCode();
+	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		Promotion promotion = null;
+		try {
+			promotion = (Promotion)obj;
+		} catch (Exception e) {
+			return false;
+		}
+		return  this.id.equals(promotion.getId());
+	}
 }

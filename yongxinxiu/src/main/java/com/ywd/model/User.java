@@ -14,8 +14,8 @@ import javax.persistence.Transient;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.ywd.Dao.intf.IUserDao;
 import com.ywd.base.intf.IModelBase;
+import com.ywd.service.User.IUserService;
 import com.ywd.util.springFactory.SpringFactory;
 
 @Entity
@@ -24,7 +24,7 @@ public class User implements IModelBase {
 	
 	@Transient
 	@Autowired
-	IUserDao iUserDao;
+	IUserService iUserService;
 	
 	
 	/** 主键 */
@@ -173,19 +173,16 @@ public class User implements IModelBase {
 		this.isEnable = isEnable;
 	}
 
-	public void save() {
-		iUserDao.save(this);
-	}
 	
-	private static IUserDao repo() {
-		return SpringFactory.getBean(IUserDao.class);
+	private static IUserService repo() {
+		return SpringFactory.getBean(IUserService.class);
 	}
 
 	/**
 	 * 保存或者更新，如果有主键那就更新，没有就插入
 	 */
 	public void saveOrUpdate() {
-		iUserDao.saveOrUpdate(this);
+		repo().save(this);
 		
 	}
 
@@ -198,12 +195,12 @@ public class User implements IModelBase {
 		return repo().queryById(id);
 	}
 
-	/**
-	 * 删除记录
-	 */
 	public void delete() {
-		repo().delete(this);
+		// TODO Auto-generated method stub
+		
 	}
+
+	
 	
 
 

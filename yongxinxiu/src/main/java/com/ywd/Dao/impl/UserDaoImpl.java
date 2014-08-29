@@ -16,7 +16,7 @@ public class UserDaoImpl  implements IUserDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-
+	
 	public Session getSession() {
 		// 事务必须是开启的，否则获取不到
 		return sessionFactory.getCurrentSession();
