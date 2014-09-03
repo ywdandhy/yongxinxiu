@@ -26,5 +26,10 @@ public class PromotionServiceImpl implements IPromotionService{
 		boolean isSuccess = iPromotionDao.save(promotion);
 		return isSuccess;
 	}
+
+	@Override
+	public List<Promotion> findPromotionList() {
+		return iPromotionDao.findPromotionList();
+	}
 	
 }

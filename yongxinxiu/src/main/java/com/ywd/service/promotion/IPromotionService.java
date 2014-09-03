@@ -10,4 +10,6 @@ public interface IPromotionService {
 	public List<Promotion> findByDealerId(String dealerId);
 	
 	public boolean save(Promotion promotion);
+	
+	public List<Promotion> findPromotionList();
 }

@@ -43,5 +43,13 @@ public class PromotionDaoImpl implements IPromotionDao {
 		}
 		return true;
 	}
+	@Override
+	public List<Promotion> findPromotionList() {
+		@SuppressWarnings("unchecked")
+		List<Promotion>  lsPromotions = getSession().createCriteria(Promotion.class)
+			.addOrder(Order.asc("createTime"))
+			.list();
+		return lsPromotions;
+	}
 
 }

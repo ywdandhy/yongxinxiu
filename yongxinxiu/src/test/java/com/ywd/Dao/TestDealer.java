@@ -30,13 +30,20 @@ public class TestDealer {
 		dealer.save();
 	
 	}
-	@Test
+//	@Test
 	public void findOne() {
 		Promotion promotion = Promotion.findInstance("40289749481fc4be01481fc4d2bf0001");
 		System.out.println(promotion.getDescription());
 		for (Dealer dealer : promotion.getLsDealers()) {
 			System.out.println(dealer.getDescription());
 		}		
+	}
+	
+	@Test
+	public void findOne1() {
+		Promotion promotion = Promotion.findInstance("40289749481fc4be01481fc4d2bf0001");
+		System.out.println(promotion.getCreateTime());
+		System.out.println(promotion.getUpdateTime());	
 	}
 	
 }

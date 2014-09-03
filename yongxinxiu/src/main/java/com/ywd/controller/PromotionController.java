@@ -1,5 +1,7 @@
 package com.ywd.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,6 +20,8 @@ public class PromotionController {
 	@RequestMapping("/promotionListPage")
 	private Object getPromotionListPage() {
 		ModelAndView modelAndView = new ModelAndView("/view/promotion/promotionList.ftl");
+		List<Promotion> lsPromotions = Promotion.findAll();
+		modelAndView.addObject("promList", lsPromotions);
 		return modelAndView;
 	}
 	

@@ -2,6 +2,7 @@ package com.ywd.model;
 
 import java.util.Date;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -66,12 +67,12 @@ public class Promotion {
 	
 	/**创建时间*/
 	@Temporal(TemporalType.TIMESTAMP)//不用set,hibernate会自动把当前时间写入  
-    @Column(updatable = false, length = 20)  
-    private Date createTime;
+    @Column(updatable = false)
+    private Date createTime = new Date();
 	
 	/**更新时间*/
-	@Temporal(TemporalType.TIMESTAMP)  
-    private Date updateTime;
+	@Temporal(TemporalType.TIMESTAMP)//不用set,hibernate会自动把当前时间写入  
+    private Date updateTime = new Date();
 	
 	private static IPromotionService repo() {
 		return SpringFactory.getBean(IPromotionService.class);
@@ -152,6 +153,10 @@ public class Promotion {
 	 
 	
 	
+	public void setCreateTime() {
+		this.createTime = new Date();
+	}
+
 	/**经销商*/
 	public Set<Dealer> getLsDealers() {
 		return lsDealers;
@@ -188,6 +193,14 @@ public class Promotion {
 	
 	public static Promotion findInstance(String id) {
 		return repo().findById(id);
+	}
+	
+	/**
+	 * 根据创建时间排序，获取所有的活动列表
+	 * @return
+	 */
+	public static List<Promotion> findAll() {
+		return repo().findPromotionList();
 	}
 	
 	@Override
