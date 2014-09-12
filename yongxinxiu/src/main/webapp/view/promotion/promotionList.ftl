@@ -23,7 +23,12 @@
 			<div class="row featurette">
 		     <div class="col-md-7">
 		         <h2>${prom.title}</h2>
-		         <p class="lead">${prom.description}</p>     	 
+		         <#if prom.description?length lt 153>
+		        	<p class="lead">${prom.description}</p>   
+		         	<#else>
+		         	<p class="lead">${prom.description[0..153]}...</p>   
+		         </#if>
+		           	 
 			     <span class="promotion_price">￥${prom.nowPrice}</span>
 			     <span class="promotion_price_old">原价：¥${prom.originalPrice}</span>
 			     <span><button type="button" class="btn btn-info">立即购买</button></span>
@@ -45,7 +50,11 @@
 		        </div>
 		        <div class="col-md-7">
 		          <h2>${prom.title}</h2>
-		          <p class="lead">${prom.description}</p>
+		          <#if prom.description?length lt 153>
+		        	<p class="lead">${prom.description}</p>   
+		         	<#else>
+		         	<p class="lead">${prom.description[0..153]}...</p>   
+		          </#if>
 		          <span class="promotion_price">￥${prom.nowPrice}</span>
 			      <span class="promotion_price_old">原价：¥${prom.originalPrice}</span>
 			      <span><button type="button" class="btn btn-info">立即购买</button></span>

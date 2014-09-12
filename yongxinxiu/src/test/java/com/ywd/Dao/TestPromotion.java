@@ -30,7 +30,11 @@ public class TestPromotion {
 			promotion.setImageUrl("sad");
 			promotion.setTitle(i + "周大生珠宝50分钻戒");
 			promotion.setNeedApply(false);
-			promotion.setDescription("周大生珠宝周大生珠宝周大生珠宝周大生珠宝周大生珠宝很好很强大，提供婚戒定制服务，为您分忧");
+			promotion.setDescription("周大生珠宝周大生珠宝周大生珠宝周大生珠宝周大生珠宝很好很强大，"
+					+ "提供婚戒定制服务，为您分忧,周大生珠宝周大生珠宝周大生珠宝周大生珠宝周大生珠宝很好"
+					+ "很强大，提供婚戒定制服务，为您分忧,周大生珠宝周大生珠宝周大生珠宝周大生珠宝周大生"
+					+ "珠宝很好很强大，提供婚戒定制服务，为您分忧,周大生珠宝周大生珠宝周大生珠宝周大生珠"
+					+ "宝周大生珠宝很好很强大");
 			promotion.setNowPrice(8000);
 			promotion.setNowNumber(200);
 			promotion.setOriginalPrice(20000);
